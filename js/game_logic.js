@@ -86,6 +86,13 @@ function gameLoop() {
     // Update bird position and velocity
     bird.update();
 
+    // Check if bird hits the bottom of the screen
+    if (bird.y + bird.radius >= canvas.height) {
+        // Game over
+        alert("Game over! Your score was: " + score);
+        location.reload();
+    }
+
     // Listen for keydown events on document
     document.addEventListener("keydown", function(event) {
         if (event.keyCode === 32) {
